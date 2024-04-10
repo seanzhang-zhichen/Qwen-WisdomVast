@@ -28,14 +28,14 @@
 
 ## 介绍
 
-Qwen-WisdomVast是**以Qwen1.5-7B为底座**，使用 [DORA](https://arxiv.org/pdf/2402.09353.pdf) + [LORA+](https://arxiv.org/pdf/2402.12354.pdf) 的训练方法，在100w高质量中文多轮SFT数据 + 20w英文多轮SFT数据 + 2000单轮自我认知数据训练而来的大模型，**数学能力**相比Qwen1.5-7B-Chat**提升了5.56%**，在**HumanEval**数据集上相比Qwen1.5-7B-Chat**提升了4.27%**，在**MBPP**数据集上**提升了14.6%**，在**BBH**数据集上**提升了11.77%**，全部评测表现见下表。
+**Qwen-WisdomVast**是**以Qwen1.5-7B为底座**，使用 [DORA](https://arxiv.org/pdf/2402.09353.pdf) + [LORA+](https://arxiv.org/pdf/2402.12354.pdf) 的训练方法，在100w高质量中文多轮SFT数据 + 20w英文多轮SFT数据 + 2000单轮自我认知数据训练而来的大模型，**数学能力**相比Qwen1.5-7B-Chat**提升了5.56%**，在**HumanEval**数据集上相比Qwen1.5-7B-Chat**提升了4.27%**，在**MBPP**数据集上**提升了14.6%**，在**BBH**数据集上**提升了11.77%**，全部评测表现见下表。
 
 ## 评测表现
 
 | Model             | MMLU  | C-Eval | GSM8K | MATH  | HumanEval | MBPP  | BBH   |
 |-------------------|-------|--------|-------|-------|-----------|-------|-------|
-| Qwen1.5-7B-Chat   | 60.88 | 70.18  | 54.13 | 7.96  | 31.10     | 15.00 | 31.67 |
-| Qwen-WisdomVast   | 56.78 | 68.17  | 53.45 | 13.58 | 35.37     | 29.60 | 43.44 |
+| **Qwen1.5-7B-Chat**   | 60.88 | 70.18  | 54.13 | 7.96  | 31.10     | 15.00 | 31.67 |
+| **Qwen-WisdomVast**   | 56.78 | 68.17  | 53.45 | 13.58 | 35.37     | 29.60 | 43.44 |
 
 说明：
 
@@ -154,3 +154,9 @@ Qwen-WisdomVast项目代码的授权协议为 [The Apache License 2.0](.//LICENS
 [hiyouga/LLaMA-Factory](https://github.com/hiyouga/LLaMA-Factory)
 <br>
 [shibing624/MedicalGPT](https://github.com/shibing624/MedicalGPT)
+<br>
+[modelscope/swift](https://github.com/modelscope/swift)
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=seanzhang-zhichen/Qwen-WisdomVast&type=Date)](https://star-history.com/#seanzhang-zhichen/Qwen-WisdomVast&Date)
