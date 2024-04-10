@@ -9,9 +9,13 @@
     <h3> Qwen-WisdomVast (千问-智瀚)</h3>
 
 <p align="center">
-      <a href='https://huggingface.co/spaces/zhichen'>
-        <img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Spaces-blue'>
+      <a href='https://huggingface.co/zhichen'>
+        <img src='https://img.shields.io/badge/%F0%9F%A4%97%20HuggingFace-Qwen%20WisdomVast-yellow'>
       </a>
+      <a href='https://modelscope.cn/profile/seanzhang'>
+        <img src='https://img.shields.io/badge/🤖 ModelScope-Qwen%20WisdomVast-blue'>
+      </a>
+      <br>
       <a href=href="https://github.com/seanzhang-zhichen/Qwen-WisdomVast/stargazers">
         <img src="https://img.shields.io/github/stars/seanzhang-zhichen/Qwen-WisdomVast?color=ccf">
       </a>
@@ -24,25 +28,32 @@
 
 ## 介绍
 
-Qwen-WisdomVast是以Qwen1.5-7B为底座，使用 [DORA](https://arxiv.org/pdf/2402.09353.pdf) + [LORA+](https://arxiv.org/pdf/2402.12354.pdf) 的训练方法，在100w高质量中文多轮SFT数据 + 20w英文多轮SFT数据 + 2000单轮自我认知数据训练而来的大模型，数学能力相比Qwen1.5-7B-Chat提升了5.56%，在HumanEval数据集上相比Qwen1.5-7B-Chat提升了4.27%，在MBPP数据集上提升了14.6%，在BBH数据集上提升了11.77%，全部评测表现见下表。
+Qwen-WisdomVast是**以Qwen1.5-7B为底座**，使用 [DORA](https://arxiv.org/pdf/2402.09353.pdf) + [LORA+](https://arxiv.org/pdf/2402.12354.pdf) 的训练方法，在100w高质量中文多轮SFT数据 + 20w英文多轮SFT数据 + 2000单轮自我认知数据训练而来的大模型，**数学能力**相比Qwen1.5-7B-Chat**提升了5.56%**，在**HumanEval**数据集上相比Qwen1.5-7B-Chat**提升了4.27%**，在**MBPP**数据集上**提升了14.6%**，在**BBH**数据集上**提升了11.77%**，全部评测表现见下表。
 
 ## 评测表现
 
 | Model             | MMLU  | C-Eval | GSM8K | MATH  | HumanEval | MBPP  | BBH   |
 |-------------------|-------|--------|-------|-------|-----------|-------|-------|
-| Qwen-7B           | 58.2  | 63.5   | 51.7  | 11.6  | 29.9      | 31.6  | 45.0  |
 | Qwen1.5-7B-Chat   | 60.88 | 70.18  | 54.13 | 7.96  | 31.10     | 15.00 | 31.67 |
 | Qwen-WisdomVast   | 56.78 | 68.17  | 53.45 | 13.58 | 35.37     | 29.60 | 43.44 |
 
 说明：
 
-Qwen-7B的评测结果来自[Qwen官方仓库](https://github.com/QwenLM/Qwen)
-
-由于官方并未公布Qwen1.5-7B-Chat的评测表现，所以我们自己使用opencompass脚本测试得到以上结果
+由于官方并未公布Qwen1.5-7B-Chat的评测表现，所以我们自己使用[opencompass](https://github.com/open-compass/opencompass)脚本测试得到以上结果
 
 Qwen-WisdomVast使用和Qwen1.5-7B-Chat一样的参数进行测试
 
-## 合并LORA模型
+## 模型下载
+
+| Model             | Download  |
+|:-------------------:|:-----------:|
+| Qwen1.5-7B        |[ 🤗 HuggingFace](https://huggingface.co/Qwen/Qwen1.5-7B) [  🤖 ModelScope](https://modelscope.cn/models/qwen/Qwen1.5-7B)|
+| Qwen-WisdomVast-Lora           |[ 🤗 HuggingFace](https://huggingface.co/zhichen/Qwen-WisdomVast-Lora) [  🤖 ModelScope](https://modelscope.cn/models/seanzhang/Qwen-WisdomVast-Lora)|
+| Qwen-WisdomVast (合并好的模型)           |[ 🤗 HuggingFace](https://huggingface.co/zhichen/Qwen-WisdomVast) [  🤖 ModelScope](https://modelscope.cn/models/seanzhang/Qwen-WisdomVast)|
+
+
+
+## 合并LORA模型（可跳过）
 
 1、下载 [Qwen1.5-7B](https://modelscope.cn/models/qwen/Qwen1.5-7B/summary) 模型
 
@@ -105,9 +116,7 @@ python -m vllm.entrypoints.openai.api_server --served-model-name Qwen-WisdomVast
 
 2、使用[opencompass](https://github.com/open-compass/opencompass)框架进行测试
 
-想要复现测试结果的同学可以参考以下文章：
-
-[使用opencompass验证模型效果](https://blog.csdn.net/qq_44193969/article/details/134979054)
+参考：[使用opencompass验证模型效果](https://blog.csdn.net/qq_44193969/article/details/134979054)
 
 按照以上文章修改好后，将`eval_qwen_wisdomvast.py`文件到 `opencompass/configs`文件夹下
 
