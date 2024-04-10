@@ -55,16 +55,25 @@ Qwen-WisdomVast使用和Qwen1.5-7B-Chat一样的参数进行测试
 
 ## 合并LORA模型（可跳过）
 
-1、下载 [Qwen1.5-7B](https://modelscope.cn/models/qwen/Qwen1.5-7B/summary) 模型
+1、下载 [Qwen1.5-7B](https://modelscope.cn/models/qwen/Qwen1.5-7B)
 
 ```bash
 git clone https://www.modelscope.cn/qwen/Qwen1.5-7B.git
 ```
 
-2、下载[Qwen-WisdomVast-Lora](todo)
+2、下载[Qwen-WisdomVast-Lora](https://www.modelscope.cn/models/seanzhang/Qwen-WisdomVast-Lora)
 
+**From ModelScope**
 ```bash
-# TODO
+git lfs install
+git clone https://www.modelscope.cn/seanzhang/Qwen-WisdomVast-Lora.git
+
+```
+
+**From HuggingFace**
+```bash
+git lfs install
+git clone https://huggingface.co/zhichen/Qwen-WisdomVast-Lora
 ```
 
 3、合并模型
@@ -75,6 +84,22 @@ python merge_lora.py \
     --lora_model path/to/lora/Qwen-WisdomVast-Lora \
     --output_dir ./Qwen-WisdomVast
 ```
+
+## 下载 Qwen-WisdomVast
+
+**From ModelScope**
+```bash
+git lfs install
+git clone https://www.modelscope.cn/seanzhang/Qwen-WisdomVast.git
+
+```
+
+**From HuggingFace**
+```bash
+git lfs install
+git clone https://huggingface.co/zhichen/Qwen-WisdomVast
+```
+
 
 ## 命令行推理
 
