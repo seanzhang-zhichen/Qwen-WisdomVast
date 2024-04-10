@@ -39,7 +39,7 @@
 
 说明：
 
-由于官方并未公布Qwen1.5-7B-Chat的评测表现，所以我们自己使用[opencompass](https://github.com/open-compass/opencompass)脚本测试得到以上结果
+由于官方并未公布Qwen1.5-7B-Chat的评测表现，所以我们自己使用[opencompass](https://github.com/open-compass/opencompass)测试得到以上结果
 
 Qwen-WisdomVast使用和Qwen1.5-7B-Chat一样的参数进行测试
 
