@@ -1,13 +1,11 @@
 
 
-from argparse import ArgumentParser
-from threading import Thread
 
-import gradio as gr
 import torch
+import gradio as gr
+from threading import Thread
+from argparse import ArgumentParser
 from transformers import AutoModelForCausalLM, AutoTokenizer, TextIteratorStreamer
-
-
 
 
 def _get_args():
@@ -116,14 +114,12 @@ def _launch_demo(args, model, tokenizer):
         return _chatbot
 
     with gr.Blocks() as demo:
-        gr.Markdown("""\
-<p align="center"><img src="https://qianwen-res.oss-accelerate-overseas.aliyuncs.com/logo_qwen1.5.jpg" style="height: 80px"/><p>""")
         gr.Markdown("""<center><font size=8>Qwen-WisdomVast</center>""")
         gr.Markdown("""\
 <center><font size=4>
-Qwen1.5-7B <a href="https://modelscope.cn/models/qwen/Qwen1.5-7B/summary">🤖 </a> | 
-<a href="https://huggingface.co/Qwen/Qwen1.5-7B">🤗</a>&nbsp ｜ 
-&nbsp<a href="https://github.com/QwenLM/Qwen1.5">Github</a></center>""")
+Qwen-WisdomVast <a href="https://modelscope.cn/models/seanzhang/Qwen-WisdomVast">🤖 ModelScope</a> | 
+<a href="https://huggingface.co/zhichen/Qwen-WisdomVast">🤗 HuggingFace</a>&nbsp ｜ 
+&nbsp<a href="https://github.com/seanzhang-zhichen/Qwen-WisdomVast">Github</a></center>""")
 
         chatbot = gr.Chatbot(label='Qwen-WisdomVast', elem_classes="control-height")
         query = gr.Textbox(lines=2, label='Input')
@@ -140,11 +136,11 @@ Qwen1.5-7B <a href="https://modelscope.cn/models/qwen/Qwen1.5-7B/summary">🤖 <
         regen_btn.click(regenerate, [chatbot, task_history], [chatbot], show_progress=True)
 
         gr.Markdown("""\
-<font size=2>Note: This demo is governed by the original license of Qwen1.5. \
+<font size=2>Note: This demo is governed by the original license of Qwen-WisdomVast. \
 We strongly advise users not to knowingly generate or allow others to knowingly generate harmful content, \
 including hate speech, violence, pornography, deception, etc. \
 <br>
-(注：本演示受Qwen1.5的许可协议限制。我们强烈建议，用户不应传播及不应允许他人传播以下内容，\
+(注：本演示受Qwen-WisdomVast的许可协议限制。我们强烈建议，用户不应传播及不应允许他人传播以下内容，\
 包括但不限于仇恨言论、暴力、色情、欺诈相关的有害信息。)""")
 
     demo.queue().launch(

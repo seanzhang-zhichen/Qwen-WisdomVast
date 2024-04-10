@@ -1,16 +1,8 @@
 # -*- coding: utf-8 -*-
-"""
-Usage:
-python merge_lora.py \
-    --base_model path/to/llama/model \
-    --lora_model path/to/lora/model \
-    --output_dir path/to/output/dir
-"""
-
-import argparse
 
 import torch
-from peft import PeftModel, PeftConfig
+import argparse
+from peft import PeftModel
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
 
