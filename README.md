@@ -1,6 +1,6 @@
 <p align="center">
 <a href='https://huggingface.co/spaces/zhichen'>
-<img src='.images/logo.png'>
+<img src='./images/logo.png'>
 </a>
 </p>
 
