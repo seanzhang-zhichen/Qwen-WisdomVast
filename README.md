@@ -85,7 +85,7 @@ python merge_lora.py \
     --output_dir ./Qwen-WisdomVast
 ```
 
-## 下载 Qwen-WisdomVast
+## 下载 Qwen-WisdomVast（合并好的模型）
 
 **From ModelScope**
 ```bash
@@ -104,13 +104,13 @@ git clone https://huggingface.co/zhichen/Qwen-WisdomVast
 ## 命令行推理
 
 ```bash
-python cli_demo.py  --model_path ./Qwen-WisdomVast
+python cli_demo.py  --model_path ./Qwen-WisdomVast(换成你自己的合并后的模型路径)
 ```
 
 ## web 推理
 
 ```bash
-python web_demo.py  --model_path ./Qwen-WisdomVast
+python web_demo.py  --model_path ./Qwen-WisdomVast(换成你自己的合并后的模型路径)
 ```
 
 
@@ -136,7 +136,7 @@ python vllm_web_demo.py --model Qwen-WisdomVast
 部署命令:
 
 ```bash
-python -m vllm.entrypoints.openai.api_server --served-model-name Qwen-WisdomVast --model /model/Qwen-WisdomVast(换成你自己的合并后的模型路径)
+python -m vllm.entrypoints.openai.api_server --served-model-name Qwen-WisdomVast --model ./Qwen-WisdomVast(换成你自己的合并后的模型路径)
 ```
 
 2、使用[opencompass](https://github.com/open-compass/opencompass)框架进行测试
