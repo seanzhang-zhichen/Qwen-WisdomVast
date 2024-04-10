@@ -16,7 +16,7 @@
         <img src="https://img.shields.io/github/stars/seanzhang-zhichen/Qwen-WisdomVast?color=ccf">
       </a>
       <a href="https://github.com/seanzhang-zhichen/Qwen-WisdomVast/blob/main/LICENSE">
-        <img alt="GitHub Contributors" src="https://img.shields.io/badge/Apache License 2.0-lightgrey.svg" />
+        <img alt="GitHub Contributors" src="https://img.shields.io/badge/license-Apache%202.0-blue.svg" />
       </a>
 </p>
 </div>
@@ -117,6 +117,26 @@ python -m vllm.entrypoints.openai.api_server --served-model-name Qwen-WisdomVast
 ```bash
 python run.py configs/eval_qwen_wisdomvast.py  -w outputs/Qwen-WisdomVast
 ```
+
+## LICENSE
+
+本项目仅可应用于研究目的，项目开发者不承担任何因使用本项目（包含但不限于数据、模型、代码等）导致的危害或损失。详细请参考[免责声明](https://github.com/seanzhang-zhichen/Qwen-WisdomVast/blob/main/DISCLAIMER)。
+
+Qwen-WisdomVast项目代码的授权协议为 [The Apache License 2.0](.//LICENSE)，代码可免费用做商业用途，模型权重和数据只能用于研究目的。请在产品说明中附加Qwen-WisdomVast的链接和授权协议。
+
+## Citation
+
+如果你在研究中使用了Qwen-WisdomVast，请按如下格式引用：
+
+```latex
+@misc{Qwen-WisdomVast,
+  title={Qwen-WisdomVast},
+  author={Zhichen Zhang},
+  year={2024},
+  howpublished={\url{https://github.com/seanzhang-zhichen/Qwen-WisdomVast}},
+}
+```
+
 
 ## Acknowledgement
 
