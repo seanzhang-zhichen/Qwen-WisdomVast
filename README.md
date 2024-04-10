@@ -131,7 +131,7 @@ Qwen-WisdomVast项目代码的授权协议为 [The Apache License 2.0](.//LICENS
 ```latex
 @misc{Qwen-WisdomVast,
   title={Qwen-WisdomVast},
-  author={Zhichen Zhang},
+  author={Zhichen Zhang, Weihan Huang},
   year={2024},
   howpublished={\url{https://github.com/seanzhang-zhichen/Qwen-WisdomVast}},
 }
