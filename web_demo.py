@@ -5,6 +5,7 @@ import torch
 import gradio as gr
 from threading import Thread
 from argparse import ArgumentParser
+from transformers import GenerationConfig
 from transformers import AutoModelForCausalLM, AutoTokenizer, TextIteratorStreamer
 
 
@@ -40,7 +41,20 @@ def _load_model_tokenizer(args):
         device_map=device_map,
         resume_download=True,
     ).eval()
-    model.generation_config.max_new_tokens = 2048   # For chat.
+
+    model.generation_config = GenerationConfig(
+        bos_token_id = 151643,
+        do_sample = True,
+        eos_token_id = [
+            151645,
+            151643
+        ],
+        max_new_tokens = 2048,
+        repetition_penalty = 1.05,
+        temperature = 0.7,
+        top_p = 0.8,
+        top_k = 20,
+    )
 
     return model, tokenizer
 
