@@ -28,7 +28,7 @@
 
 ## 介绍
 
-**Qwen-WisdomVast**是**以Qwen1.5-7B为底座**，使用 [DORA](https://arxiv.org/pdf/2402.09353.pdf) + [LORA+](https://arxiv.org/pdf/2402.12354.pdf) 的训练方法，在100w高质量中文多轮SFT数据 + 20w英文多轮SFT数据 + 2000单轮自我认知数据训练而来的大模型，**数学能力**相比Qwen1.5-7B-Chat**提升了5.56%**，在**HumanEval**数据集上相比Qwen1.5-7B-Chat**提升了4.27%**，在**MBPP**数据集上**提升了14.6%**，在**BBH**数据集上**提升了11.77%**，全部评测表现见下表。
+**Qwen-WisdomVast**是**以Qwen1.5-7B为底座**，使用 [DORA](https://arxiv.org/pdf/2402.09353.pdf) + [LORA+](https://arxiv.org/pdf/2402.12354.pdf) 的训练方法，在100w高质量中文多轮SFT数据 + 20w英文多轮SFT数据 + 2000单轮自我认知数据训练而来的大模型，**数学能力**相比Qwen1.5-7B-Chat**提升了5.16%**，在**HumanEval**数据集上相比Qwen1.5-7B-Chat**提升了12.8**，在**MBPP**数据集上**提升了11.6%**，在**BBH**数据集上**提升了12.44%**，全部评测表现见下表。
 
 ## 评测表现
 
