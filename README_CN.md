@@ -1,5 +1,5 @@
 <p align="left">
-    <a href="README_CN.md">中文</a>&nbsp ｜ &nbspEnglish
+    中文</a>&nbsp ｜ &nbsp<a href="README.md">English</a>
 </p>
 <br><br>
 
@@ -31,46 +31,44 @@
 </div>
 
 
-## Introduce
+## 介绍
 
-**Qwen-WisdomVast** is a large model trained on 1 million high-quality Chinese multi-turn SFT data, 200,000 English multi-turn SFT data, and 2,000 single-turn self-cognition data, using the training methods of [DORA](https://arxiv.org/pdf/2402.09353.pdf) and [LORA+](https://arxiv.org/pdf/2402.12354.pdf) based on **Qwen1.5-7B** as the base. Compared to Qwen1.5-7B-Chat, it has improved **mathematical abilities** by **5.16%**, **12.8%** on the **HumanEval** dataset, **11.6%** on the **MBPP** dataset, and **12.44%** on the **BBH** dataset. The performance on all evaluations is shown in the table below.
+**Qwen-WisdomVast**是**以Qwen1.5-7B为底座**，使用 [DORA](https://arxiv.org/pdf/2402.09353.pdf) + [LORA+](https://arxiv.org/pdf/2402.12354.pdf) 的训练方法，在100w高质量中文多轮SFT数据 + 20w英文多轮SFT数据 + 2000单轮自我认知数据训练而来的大模型，**数学能力**相比Qwen1.5-7B-Chat**提升了5.16%**，在**HumanEval**数据集上相比Qwen1.5-7B-Chat**提升了12.8**，在**MBPP**数据集上**提升了11.6%**，在**BBH**数据集上**提升了12.44%**，全部评测表现见下表。
 
 ![DEMO](./images/image.png)
 
-
-## Evaluation Results
+## 评测表现
 
 | Model             | MMLU  | C-Eval | GSM8K | MATH  | HumanEval | MBPP  | BBH   |
 |-------------------|-------|--------|-------|-------|-----------|-------|-------|
 | **Qwen1.5-7B-Chat**   | 60.88 | 70.18  | 54.13 | 7.96  | 31.10     | 15.00 | 31.67 |
 | **Qwen-WisdomVast**   | 57.09 | **70.82**  | 51.93 | **13.12** | **43.90**     | **26.60** | **44.11** |
 
+说明：
 
-Explanation:
+由于官方并未公布Qwen1.5-7B-Chat的评测表现，所以我们自己使用[opencompass](https://github.com/open-compass/opencompass)测试得到以上结果
 
-Since the official evaluation performance of Qwen1.5-7B-Chat has not been disclosed, we conducted our own testing using [opencompass](https://github.com/open-compass/opencompass) and obtained the above results.
+Qwen-WisdomVast使用和Qwen1.5-7B-Chat一样的参数进行测试
 
-Qwen-WisdomVast was tested using the same parameters as Qwen1.5-7B-Chat.
-
-
-## Download Model
+## 模型下载
 
 | Model             | Download  |
 |:-------------------:|:-----------:|
 | Qwen1.5-7B        |[ 🤗 HuggingFace](https://huggingface.co/Qwen/Qwen1.5-7B) [  🤖 ModelScope](https://modelscope.cn/models/qwen/Qwen1.5-7B)|
 | Qwen-WisdomVast-Lora           |[ 🤗 HuggingFace](https://huggingface.co/zhichen/Qwen-WisdomVast-Lora) [  🤖 ModelScope](https://modelscope.cn/models/seanzhang/Qwen-WisdomVast-Lora)|
-| Qwen-WisdomVast (Merged Model)           |[ 🤗 HuggingFace](https://huggingface.co/zhichen/Qwen-WisdomVast) [  🤖 ModelScope](https://modelscope.cn/models/seanzhang/Qwen-WisdomVast)|
+| Qwen-WisdomVast (合并好的模型)           |[ 🤗 HuggingFace](https://huggingface.co/zhichen/Qwen-WisdomVast) [  🤖 ModelScope](https://modelscope.cn/models/seanzhang/Qwen-WisdomVast)|
 
 
-## Merge LORA Model (Skippable)
 
-1、Download [Qwen1.5-7B](https://modelscope.cn/models/qwen/Qwen1.5-7B)
+## 合并LORA模型（可跳过）
+
+1、下载 [Qwen1.5-7B](https://modelscope.cn/models/qwen/Qwen1.5-7B)
 
 ```bash
 git clone https://www.modelscope.cn/qwen/Qwen1.5-7B.git
 ```
 
-2、Download [Qwen-WisdomVast-Lora](https://www.modelscope.cn/models/seanzhang/Qwen-WisdomVast-Lora)
+2、下载[Qwen-WisdomVast-Lora](https://www.modelscope.cn/models/seanzhang/Qwen-WisdomVast-Lora)
 
 **From ModelScope**
 ```bash
@@ -85,7 +83,7 @@ git lfs install
 git clone https://huggingface.co/zhichen/Qwen-WisdomVast-Lora
 ```
 
-3、Merge Model
+3、合并模型
 
 ```bash
 python merge_lora.py \
@@ -94,8 +92,7 @@ python merge_lora.py \
     --output_dir ./Qwen-WisdomVast
 ```
 
-
-## Download Qwen-WisdomVast (Merged Model)
+## 下载 Qwen-WisdomVast（合并好的模型）
 
 **From ModelScope**
 ```bash
@@ -110,68 +107,67 @@ git lfs install
 git clone https://huggingface.co/zhichen/Qwen-WisdomVast
 ```
 
-## CLI DEMO
+
+## 命令行推理
 
 ```bash
-python cli_demo.py  --model_path ./Qwen-WisdomVast(Replace it with your own merged model path)
+python cli_demo.py  --model_path ./Qwen-WisdomVast(换成你自己的合并后的模型路径)
 ```
 
-## WEB DEMO
+## web 推理
 
 ```bash
-python web_demo.py  --model_path ./Qwen-WisdomVast(Replace it with your own merged model path)
+python web_demo.py  --model_path ./Qwen-WisdomVast(换成你自己的合并后的模型路径)
 ```
 
 
-## VLLM WEB DEMO
+## vllm web 推理
 
-1、Use [vllm](https://github.com/vllm-project/vllm) deploy model
+1、使用[vllm](https://github.com/vllm-project/vllm)部署模型
 
 ```bash
-python -m vllm.entrypoints.openai.api_server --served-model-name Qwen-WisdomVast --model ./Qwen-WisdomVast(Replace it with your own merged model path)
+python -m vllm.entrypoints.openai.api_server --served-model-name Qwen-WisdomVast --model ./Qwen-WisdomVast(换成你自己的合并后的模型路径)
 ```
 
-2、This command is executed on the CLI
+2、在命令行执行
 
 ```bash
 python vllm_web_demo.py --model Qwen-WisdomVast 
 ```
 
 
-## Repeat the evaluation results
+## 复现测试结果
 
-1、Use [vllm](https://github.com/vllm-project/vllm) deploy `openai api server`
+1、使用[vllm](https://github.com/vllm-project/vllm)部署`openai api server`
 
-deploy command:
+部署命令:
 
 ```bash
-python -m vllm.entrypoints.openai.api_server --served-model-name Qwen-WisdomVast --model ./Qwen-WisdomVast(Replace it with your own merged model path)
+python -m vllm.entrypoints.openai.api_server --served-model-name Qwen-WisdomVast --model ./Qwen-WisdomVast(换成你自己的合并后的模型路径)
 ```
 
-2、Use [opencompass](https://github.com/open-compass/opencompass) framework to eval
+2、使用[opencompass](https://github.com/open-compass/opencompass)框架进行测试
 
-Reference: [Verify model effects using opencompass](https://blog.csdn.net/qq_44193969/article/details/134979054)
+参考：[使用opencompass验证模型效果](https://blog.csdn.net/qq_44193969/article/details/134979054)
 
-After modifying as described above, copy the `eval_qwen_wisdomvast.py` file in the `opencompass/configs` folder
+按照以上文章修改好后，将`eval_qwen_wisdomvast.py`文件复制到 `opencompass/configs`文件夹下
 
 
-3、Execute test script
+3、执行测试脚本
 
 ```bash
 python run.py configs/eval_qwen_wisdomvast.py  -w outputs/Qwen-WisdomVast
 ```
 
-
 ## LICENSE
 
-This project can only be used for research purposes, and the project developer shall not bear any harm or loss caused by the use of this project (including but not limited to data, models, codes, etc.). For details, please refer to [DISCLAIMER](https://github.com/seanzhang-zhichen/Qwen-WisdomVast/blob/main/DISCLAIMER)。
+本项目仅可应用于研究目的，项目开发者不承担任何因使用本项目（包含但不限于数据、模型、代码等）导致的危害或损失。详细请参考[免责声明](https://github.com/seanzhang-zhichen/Qwen-WisdomVast/blob/main/DISCLAIMER)。
 
-The License agreement of the Qwen-WisdomVast project code is the [Apache License 2.0](./LICENSE). The code is free for commercial use, and the model weights and data can only be used for research purposes. Please attach a link to Qwen-WisdomVast and the licensing agreement in the product description.
-
+Qwen-WisdomVast项目代码的授权协议为 [The Apache License 2.0](./LICENSE)，代码可免费用做商业用途，模型权重和数据只能用于研究目的。请在产品说明中附加Qwen-WisdomVast的链接和授权协议。
 
 ## Citation
 
-If you used Qwen-WisdomVast in your research, cite it in the following format:
+如果你在研究中使用了Qwen-WisdomVast，请按如下格式引用：
 
 ```latex
 @misc{Qwen-WisdomVast,
@@ -181,6 +177,7 @@ If you used Qwen-WisdomVast in your research, cite it in the following format:
   howpublished={\url{https://github.com/seanzhang-zhichen/Qwen-WisdomVast}},
 }
 ```
+
 
 ## Acknowledgement
 
